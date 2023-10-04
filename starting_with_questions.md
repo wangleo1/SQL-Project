@@ -30,7 +30,7 @@ select country,city, convert_price(sum("totalTransactionRevenue")) as TR from al
 
 Answer: An overwhelming majority of total transactional revenue comes from the United States – accounting for approximately 92%.  The remaining 8% of transactional revenue results from business conducted in Israel, Australia, Canada and Switzerland. 
 
-In regards to most profitable cities, the data is slightly ambiguous as the dataset is missing a considerable amount of region data. Nearly half of the transactional revenue generated from the USA is missing an associated city. In terms of the information available, a majority of sales originate from the West Coast – specifically California. Ambiguous data aside, the top revenue generating cities inside the USA include San Francisco, Sunnyvale, Atlanta, Palo Alto,  New York and Mountain View – four of which reside in California.
+In regards to most profitable cities, the data is slightly ambiguous as the dataset is missing a considerable amount of region data. Nearly half of the transactional revenue generated from the USA is missing an associated city. In terms of the information available, a majority of sales originate from the West Coast – specifically California. Ambiguous data aside, the top revenue generating cities inside the USA include San Francisco, Sunnyvale, Atlanta, Palo Alto, New York and Mountain View – four of which reside in California.
 
 
 
