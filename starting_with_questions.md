@@ -66,6 +66,9 @@ select country, city, avg("productQuantity"),count("productQuantity") from all_s
 
 
 Answer:
+The countries with the highest average number of products ordered include both Spain and USA, holding average quantities of 10 and 4.0238 respectively. Additionally, it is important to inspect how these averages are calculated – there exists only one transaction originating from Spain whereas the average for USA is comprised of 42 different orders. Other notable countries include Colombia, France, Canada, Argentina, India, Ireland, Mexico and Finland which all possess average quantities per order of one. 
+Corresponding with the previously mentioned countries, Madrid and Salem have the highest average number of products ordered with 10 and 8 respectively. Similar to the previous question, ambiguity exists within this response as 20 of the orders did not have an associated city listed – 12 of which reside within the USA (as seen in the third table).  Further expansion on the topic resides within the QA.md file.
+
 
 
 
