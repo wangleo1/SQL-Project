@@ -8,6 +8,9 @@ Queries:
 --creates a new table that resemebles the analytics table (but without duplicating rows)	
 create table analytics_clean as
 	select distinct * from analytics
+
+ --check that the new table has no duplicates	
+select distinct count(*) from analytics_clean
  
 --UDF to clean price/ convert to used
 create or replace function convert_price (price real)
