@@ -78,10 +78,25 @@ Corresponding with the previously mentioned countries, Madrid and Salem have the
 
 
 SQL Queries:
-
-
+---------question3----------------
+--10 different countries just like the previous question
+--replace to clean the category name a bit
+select country, replace("v2ProductCategory", 'Home/','') as Category, count("v2ProductCategory") from all_sessions
+	group by country, "v2ProductCategory"
+	--only want results where there have been orders placed (in order to see trends)
+	having sum("productQuantity") is not null
+	order by count("v2ProductCategory") desc
+ 
+--lots of nest purchases in california (SF, Mountain View, San Jose, LA, Palo Alto)
+-- Google Headquarters, Silicone Vally
+select city, replace("v2ProductCategory", 'Home/','') as Category , count("v2ProductCategory") from all_sessions
+	group by city, "v2ProductCategory"
+	having sum("productQuantity") is not null
+	order by count("v2ProductCategory") desc
 
 Answer:
+The site appears to generate much of its revenue from apparel sale within North America– mainly men’s apparel. There may be a potential correlation between viewer gender and purchasing habits. There also significant sales within the YouTube brand and uncategorized product categories. Sales originating from outside North America do not appear to exhibit any obvious patterns.
+Granted the data ambiguity of the city column, an interesting pattern may be seen across the West Coast. Many cities residing within California have shown an affiliation for Nest products – an interactive line of smart home products designed by Google. This trend could potentially share insight on the demographics within California. For instance, Nest sales may experience a spike in sale within these regions due to the types of demographics they attract – California being the home of both the Google headquarters and Silicon Valley may attract more technology progressive people. 
 
 
 
@@ -91,10 +106,43 @@ Answer:
 
 
 SQL Queries:
+--results align with results of previous quesiton (lots of mens appearal)
+select country, 
+	name_clean("v2ProductName") as Productname,
+	count("v2ProductName")
+from all_sessions
+group by country, "v2ProductName"
+having sum("productQuantity") is not null
+order by country, count("v2ProductName") desc
 
-
+-- similar to question 3, Nest products seem very popular across the west coast of USA
+select city, 
+	name_clean("v2ProductName") as ProductName,
+	count("v2ProductName") 
+from all_sessions	
+group by city, "v2ProductName"
+having sum("productQuantity") is not null
+order by city, count("v2ProductName") desc
 
 Answer:
+The following is a breakdown of the top-selling products by country: 
+
+Argentina	"Alpine Style Backpack"
+Canada		"Twill Cap"
+Colombia	"Men's Short Sleeve Hero Tee Black"
+Finland		"Laptop and Cell Phone Stickers"
+France		"Wool Heather Cap Heather/Black"
+India		"Men's Vintage Badge Tee Black"
+Ireland		"Laptop Backpack"
+Mexico		"Men's Vintage Tee"
+Spain		"Waze Dress Socks"
+United States	"Men's 100% Cotton Short Sleeve Hero Tee White"
+
+
+The results from the queries align with results from Question 4 – there appears to be high global sales volume in specifically men’s apparel with four out of ten countries having some form of apparel as their top-selling product. 
+In regards to cities, men’s t-shirts have found significant popularity amongst buyers. 
+
+In addition, expanding further on the results from Question 4, Nest products are regarded as the top-selling product within the various cities of California. These cities include San Francisco, Sunnyvale, Palo Alto and Mountain View, with their top- selling products consisting of Nest brand outdoor/indoor security cameras, thermostats and smoke detectors respectively. 
 
 
 
