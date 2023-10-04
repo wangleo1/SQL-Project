@@ -6,6 +6,9 @@ Dates, which had been initially stored as strings due to their inconsistent form
 The final piece of data cleaning within the project involved product names. The product names had been initially been provided in a directory format, making the interpolation of results rather difficult. The convert_name UDF seeks to drop the “YouTube”, “Google” and “Android” prefixes proceeding the product names. Additionally, “Home/” had been dropped from the product categories for similar reasons as the product names; this had been directly altered within the queries as opposed to a UDF for simplicity.
 
 
+Note: All transformational processes had been stored in the form of UDFs so they could be later applied to any of the datasets.
+Only data used within the analysis/calculations had been cleaned. Data which had not been used had not been cleaned.
+
 
 Queries:
 --creates a new table that resemebles the analytics table (but without duplicating rows)	
@@ -62,8 +65,5 @@ $$ LANGUAGE PLPGSQL;
 --drops the 'prefix' of the category names
 replace("v2ProductCategory", 'Home/','') as Category
 
-
-Note: All transformational processes had been stored in the form of UDFs so they could be later applied to any of the datasets.
-Only data used within the analysis/calculations had been cleaned. Data which had not been used had not been cleaned.
 
 
