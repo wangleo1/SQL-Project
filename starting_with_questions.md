@@ -50,11 +50,17 @@ select country, avg("productQuantity"), count("productQuantity") from all_sessio
 	order by avg("productQuantity") desc
 
 --20 total N/As
---12 are from the USA
 select city, avg("productQuantity"), count("productQuantity") from all_sessions
 	group by city
 	having sum("productQuantity") is not null
 	order by avg("productQuantity") desc
+
+--majoirty of orders with missing cities are from the USA (Q2)
+--12 are from the USA
+select country, count(city) from all_sessions
+	where city = 'not available in demo dataset' and "productQuantity" is not null
+	group by country
+	order by country
 
  --the counts for USA do equal out to 42(same number as the first table) when looking for only USA
 select country, city, avg("productQuantity"),count("productQuantity") from all_sessions
@@ -151,7 +157,24 @@ In addition, expanding further on the results from Question 4, Nest products are
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
 SQL Queries:
+--Look at order categories from the USA
+select city, replace("v2ProductCategory", 'Home/','') as Category , count("v2ProductCategory") from all_sessions
+	where country = 'United States'
+	group by city, "v2ProductCategory"
+	having sum("productQuantity") is not null
+	order by count("v2ProductCategory") desc
 
+--look specifically at product sales from the USA
+select city, 
+	name_clean("v2ProductName") as ProductName,
+	count("v2ProductName") 
+from all_sessions	
+where country = 'United States'
+group by city, "v2ProductName"
+having sum("productQuantity") is not null
+order by city, count("v2ProductName") desc
+
+ 
 
 
 Answer:
