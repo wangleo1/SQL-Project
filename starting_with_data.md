@@ -61,5 +61,10 @@ select "productSKU", sr.total_ordered from sales_report sr
 	where sbs."productSKU" is null and p."SKU" is null
 
 Answer:
+As many of the graphs contained similar information, an interesting question arose – Are there any product SKUs missing from any particular table? Utilizing joins, the sales_report, sales_by_sku and products had been excluding joined to see if there were any SKUs which appear in one table but not another.
+Results indicated the sales_report did not contain any SKUs which were not present within the other two tables.
+The sales_by_sku table held eight unique SKUs not present in the other tables. 
+The products table held 638 SKUs unique to said table.
+It is important to focus on the ‘why’ when analyzing discrepancies to determine whether they result from user error or poor citation. As the three tables are all cross-sectional data, the timeframe for the records may vary as citation is nonexistent – the tables could be for the year, quarter, month, etc. Further insight on the timeframes of the table may account for these discrepancies. Furthermore, the introduction of new products or removal of discontinued ones may explain this discrepancy, resulting in a different number of distinct product SKUs per table.
 
 
