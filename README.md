@@ -4,8 +4,8 @@
 To create and extract information with SQL code from raw data files concerning a website’s visitor history. The project seeks to produce a cleaned database free of errors and redundancy to answer a set of preassigned questions; in addition to creating/answering user questions formed from said data.
 
 ## Process
- Extract data from Compass
- Visually inspect individual .csv files using Excel to identify useful columns and their respective data types
+ # Extract data from Compass
+ ## Visually inspect individual .csv files using Excel to identify useful columns and their respective data types
  Create tables and import data in SQL
  Clean, normalize and transform datasets
  Inspect again to ensure the newly cleaned data is viable and correct
